@@ -1,38 +1,42 @@
 # Web-API
 
+**Mejorando la experiencia del usuario con las API de libros:**
 
-Modificaciones a las API para el manejo de libros
-Excepción LibroException:
+Nos complace anunciar importantes mejoras en nuestras API de libros, diseñadas para ofrecer una experiencia de usuario más fluida y robusta. Estas modificaciones se centran en dos aspectos clave: el manejo de errores y las respuestas de la API.
 
-Se ha agregado una nueva excepción llamada LibroException para manejar situaciones donde el libro solicitado no existe. Esta excepción se lanzará en el método GET /libros/{id_libro} si el libro con el ID especificado no se encuentra en la base de datos.
+**1. Manejo de errores optimizado:**
 
-Respuesta de error personalizada:
+Hemos introducido la excepción LibroException para gestionar de forma eficaz las situaciones en las que el libro solicitado no existe. Esta excepción se activa específicamente en el método GET /libros/{id_libro} cuando el libro con el ID especificado no se encuentra en la base de datos.
 
-En caso de que se lance la excepción LibroException, la API devolverá un código de estado HTTP NOT_FOUND junto con un mensaje de error personalizado que indica que el libro no existe.
+En caso de que se lance la excepción LibroException, la API devolverá un código de estado HTTP NOT_FOUND junto con un mensaje de error personalizado que claramente indica que el libro no existe. De este modo, los desarrolladores que consumen la API pueden identificar fácilmente este error y tomar las medidas oportunas.
 
-Respuesta de creación exitosa:
+**2. Respuestas de la API más informativas:**
 
-Al crear un nuevo libro, la API devolverá un código de estado HTTP CREATED junto con un mensaje que confirma la creación del libro.
+Al crear un nuevo libro, la API ahora responde con un código de estado HTTP CREATED y un mensaje que confirma la creación del libro. Esta respuesta más detallada proporciona a los desarrolladores una confirmación clara del éxito de la operación.
 
-Manejo de errores y respuestas de la API
-Las API de libros ahora implementan un mejor manejo de errores y respuestas más informativas.
+**- Beneficios de las mejoras:**
 
-Excepción LibroException:
+**- Experiencia de usuario mejorada:** La gestión optimizada de errores y las respuestas más informativas de la API contribuyen a una experiencia de usuario más fluida y sencilla. Los desarrolladores pueden comprender mejor los resultados y reaccionar ante ellos de manera adecuada.
 
-Se lanza cuando se intenta obtener un libro que no existe.
-Devuelve un código de estado HTTP NOT_FOUND con un mensaje de error personalizado que indica que el libro no existe.
-Creación de libros:
+**- Mayor confiabilidad:** La nueva excepción LibroException permite a los desarrolladores manejar de forma robusta los escenarios en los que el libro solicitado no existe, lo que se traduce en una aplicación más confiable y estable.
 
-Devuelve un código de estado HTTP CREATED junto con un mensaje que confirma la creación del libro.
+**- Comunicación más clara:** Las respuestas de la API más detalladas brindan información más precisa sobre el estado de las operaciones, facilitando la comprensión y la integración con la API.
+
+**Respuesta de error:**
 
 {
+
   "error": "Libro no encontrado",
-  "mensaje": "No se encontró ningún libro con el ID proporcionado."
+  
+  "mensaje": "No se ha encontrado ningún libro con el ID especificado."
+  
 }
 
 
-respuesta de creación exitosa:
+**Respuesta de creación exitosa:**
 
 {
+
   "mensaje": "Libro creado exitosamente"
+  
 }
